@@ -5,7 +5,7 @@
 #include <string.h>
 #include <limits.h>
 
-namespace algo {
+namespace algo {        // // Computes the dot product of two uint32_t arrays
     static uint32_t dot_product(const uint32_t * K, const uint32_t * A, uint32_t len){
         uint32_t i;
         uint32_t sum = 0;
@@ -17,6 +17,8 @@ namespace algo {
 
 
 #define KLEN 64
+    
+    // Converts a uint64_t key into an array of uint32_t digits using a given base m
     static void m_based(uint64_t key, int m, uint32_t k, uint32_t K[]){
         memset(K, 0, sizeof(uint32_t)* KLEN);
         int quotient;
@@ -29,6 +31,7 @@ namespace algo {
         K[i] = key;
         }
 
+    // Computes the modular exponentiation of a base to an exponent with a given modulus
     static unsigned Exp(unsigned base, unsigned exponent, unsigned modulus) {
         unsigned result = 1;
         while(exponent>0){
@@ -41,6 +44,7 @@ namespace algo {
         return result;
     }
 
+    // Computes the number of trailing zeros in a 32-bit unsigned integer
     static inline int ZerosR(unsigned int v){
         int c;
         if(v)
