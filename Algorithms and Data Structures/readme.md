@@ -5,5 +5,5 @@
 ### Content
     
    - Shuffle.h
-   - Prime Test.h
+   - Prime Test(trial division).h
    - Imath.h
