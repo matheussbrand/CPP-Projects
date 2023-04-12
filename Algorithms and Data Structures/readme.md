@@ -6,4 +6,5 @@
     
    - Shuffle.h
    - Prime Test(trial division).h
-   - Imath.h
+   - imath.h
+   - Prime test(Miller-Rabin's method).h
