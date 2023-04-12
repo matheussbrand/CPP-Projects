@@ -8,7 +8,7 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include "imath.H"      // include a custom header file
+#include "imath.h"      // include a custom header file
 
 namespace algo{     // define a namespace
     static bool test_prime(unsigned int n){      // define a function that checks if a number is prime using the trial division algorithm
