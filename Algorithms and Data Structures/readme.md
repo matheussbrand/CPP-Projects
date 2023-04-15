@@ -8,4 +8,4 @@
    - Prime Test(trial division).h
    - imath.h
    - Prime test(Miller-Rabin's method).h
-   - 2D Arrays
+   - 2Darrays.h
