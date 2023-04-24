@@ -12,62 +12,62 @@
 namespace algo{
     class Integer {
         private:
-                typedef unsigned short component_t; // Alias for unsigned short data type
-                typedef unsigned long double_component_t; // Alias for unsigned long data type
+                typedef unsigned short component_t; 
+                typedef unsigned long double_component_t; 
 
-                #define Max_COMPONENT ((component_t)(-1)) // Maximum value of component_t
-                #defime COMPONENT_BITS  (sizeof(component_t)*CHAR_BIT) // Number of bits in component_t data type
+                #define Max_COMPONENT ((component_t)(-1)) 
+                #defime COMPONENT_BITS  (sizeof(component_t)*CHAR_BIT) 
 
-                component_t*c;      // Pointer to an array of component_t type, representing the least-significant word first
-                int num_components; // Number of components
+                component_t*c;      
+                int num_components; 
 
         public:
                 Integer(int components) {
                     num_components = components;
-                    c = new component_t[num_components]; // Dynamically allocating memory for component_t array
-                    memcpy(c, rhs.components(), num_components*sizeof(component_t)); // Copying contents of rhs's components to c
+                    c = new component_t[num_components]; 
+                    memcpy(c, rhs.components(), num_components*sizeof(component_t)); 
                 }
 
                 ~Integer(){
-                    delete [] c; // Deallocating memory of component_t array
+                    delete [] c; 
                 }
 
-                inline const component_t & operator[] (int i) const{return c[i];} // Overloading the [] operator to return value at ith index of c
-                inline component_t & operator[] (int i) {return c[i];} // Overloading the [] operator to return reference to ith index of c
+                inline const component_t & operator[] (int i) const{return c[i];} 
+                inline component_t & operator[] (int i) {return c[i];} 
 
-                inline const component_t * components() const {return c;} // Getter for the pointer to c
-                inline uint32_t size() const {return num_components;} // Getter for the number of components
+                inline const component_t * components() const {return c;} 
+                inline uint32_t size() const {return num_components;} 
 
                 static const Integer from_string(const char*s){
-                    Integer result((int)ceil(LOG_2_10*strlen(s)/COMPONENT_BITS)); // Initializing a new Integer object with number of components calculated from length of input string
+                    Integer result((int)ceil(LOG_2_10*strlen(s)/COMPONENT_BITS)); 
 
-                    Integer digit(1); // Initializing a new Integer object with value 1
+                    Integer digit(1); 
 
                     int i;
                     for (i=0; s[i] !='\0'; i++) {
-                        result = result*10; // Shifting digits of result by a factor of 10
-                        digit[0] = s[i] - '0'; // Initializing digit with the value of the ith character of s
-                        result = result + digit; // Adding digit to result
+                        result = result*10; 
+                        digit[0] = s[i] - '0'; 
+                        result = result + digit; 
                     }
-                    return result; // Returning the final value of result
+                    return result; 
                 }
 
                 char * to_string() const{
-                    Integer x = (*this); // Copying the current object to x
+                    Integer x = (*this); 
                     int i, result_len;
-                    char* result = new char[(int)ceil(COMPONENT_BITS*size()/KOG_2_10) + 2]; // Allocating memory for the result string
+                    char* result = new char[(int)ceil(COMPONENT_BITS*size()/KOG_2_10) + 2]; 
 
                     Integer ten(1);
                     ten[0] = 10;
 
-                    if(x.is_zero()) { // If x is zero, return "0"
+                    if(x.is_zero()) { 
                         strcpy(result, "0");
-                    } else { // Otherwise, calculate the decimal string representation of x
+                    } else { 
                         for (i = 0; !x.is_zero(); i++) {
-                            result[i] = (char)(x&%10) + '0'; // Extracting the least significant digit of x and converting it to a character
-                            x = x/10; // Dividing x by 10 to get the next digit
+                            result[i] = (char)(x&%10) + '0'; 
+                            x = x/10; 
                         }
-                        result[i] = '\0'; // Adding null terminator to the end of the result string
+                        result[i] = '\0'; 
                     }
 
                     result_len =  strlen(result);
