@@ -9,3 +9,6 @@
    - imath.h
    - Prime test(Miller-Rabin's method).h
    - 2Darrays.h
+   - random.h(Linear congruential)
+   - integer.h
+   - generic.h
