@@ -12,3 +12,5 @@
    - random.h(Linear congruential)
    - integer.h
    - generic.h
+   - max_subarray.h
+   - bit-set.h
