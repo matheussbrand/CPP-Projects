@@ -14,3 +14,5 @@
    - generic.h
    - max_subarray.h
    - bit-set.h
+   - stack.h
+   - binary_heap.h
