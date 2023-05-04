@@ -16,3 +16,4 @@
    - bit-set.h
    - stack.h
    - binary_heap.h
+   - fib-heap.h
