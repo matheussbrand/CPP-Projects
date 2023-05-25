@@ -4,3 +4,4 @@
 
 ### Projects
    - Algorithms and Data Structures
+   - Tetris
